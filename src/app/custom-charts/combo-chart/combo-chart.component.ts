@@ -24,7 +24,6 @@ import {
 } from 'projects/swimlane/ngx-charts/src/public-api';
 
 @Component({
-  // tslint:disable-next-line: component-selector
   selector: 'combo-chart-component',
   templateUrl: './combo-chart.component.html',
   styleUrls: ['./combo-chart.component.scss'],

@@ -718,8 +718,7 @@ export class AppComponent implements OnInit {
   getFunction(text = this.mathText) {
     try {
       text = `with (Math) { return ${this.mathText} }`;
-      // tslint:disable-next-line: function-constructor
-      const fn = new Function('x', text).bind(Math); // tslint:disable-line: tsr-detect-eval-with-expression
+      const fn = new Function('x', text).bind(Math);
       return typeof fn(1) === 'number' ? fn : null;
     } catch (err) {
       return null;

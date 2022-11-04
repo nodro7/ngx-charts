@@ -243,12 +243,7 @@ export class HeatMapComponent extends BaseChartComponent {
    */
   getDimension(value: string | number | Array<string | number>, index: number = 0, N: number, L: number): number {
     if (typeof value === 'string') {
-      value = value
-        .replace('[', '')
-        .replace(']', '')
-        .replace('px', '')
-        // tslint:disable-next-line: quotemark
-        .replace("'", '');
+      value = value.replace('[', '').replace(']', '').replace('px', '').replace("'", '');
 
       if (value.includes(',')) {
         value = value.split(',');

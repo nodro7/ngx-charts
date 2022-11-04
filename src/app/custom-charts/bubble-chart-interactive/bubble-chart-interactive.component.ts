@@ -25,7 +25,6 @@ import {
 import { isPlatformServer } from '@angular/common';
 
 @Component({
-  // tslint:disable-next-line: component-selector
   selector: 'ngx-charts-bubble-chart-interactive',
   template: `
     <ngx-charts-chart

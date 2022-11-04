@@ -14,7 +14,6 @@ import { PlacementTypes } from '@swimlane/ngx-charts/common/tooltip/position';
 import { StyleTypes } from '@swimlane/ngx-charts/common/tooltip/style.type';
 
 @Component({
-  // tslint:disable-next-line: component-selector
   selector: 'g[ngx-charts-bubble-series-interactive]',
   template: `
     <svg:g *ngFor="let circle of circles; trackBy: trackBy">

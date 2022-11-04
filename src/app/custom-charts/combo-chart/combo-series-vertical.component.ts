@@ -6,7 +6,6 @@ import { StyleTypes } from '@swimlane/ngx-charts/common/tooltip/style.type';
 import { BarOrientation } from '@swimlane/ngx-charts/common/types/bar-orientation.enum';
 
 @Component({
-  // tslint:disable-next-line: component-selector
   selector: 'g[ngx-combo-charts-series-vertical]',
   template: `
     <svg:g

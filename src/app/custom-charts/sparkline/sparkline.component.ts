@@ -12,7 +12,6 @@ import {
 } from 'projects/swimlane/ngx-charts/src/public-api';
 
 @Component({
-  // tslint:disable-next-line: component-selector
   selector: 'ngx-charts-sparkline',
   template: `
     <ngx-charts-chart [view]="[width, height]" [showLegend]="false" [animations]="animations">
