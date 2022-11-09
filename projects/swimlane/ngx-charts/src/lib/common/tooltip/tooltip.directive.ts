@@ -169,7 +169,7 @@ export class TooltipDirective implements OnDestroy {
 
   hideTooltip(immediate: boolean = false): void {
     if (!this.component) return;
-    
+
     const destroyFn = () => {
       // remove events
       if (this.mouseLeaveContentEvent) this.mouseLeaveContentEvent();
