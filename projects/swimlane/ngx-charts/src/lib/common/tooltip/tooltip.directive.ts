@@ -28,7 +28,7 @@ export class TooltipDirective implements OnDestroy {
   @Input() tooltipPlacement: PlacementTypes = PlacementTypes.Top;
   @Input() tooltipAlignment: PlacementTypes = PlacementTypes.Center;
   @Input() tooltipType: StyleTypes = StyleTypes.popover;
-  @Input() tooltipCloseOnClickOutside: boolean = true;
+  @Input() tooltipCloseOnTouchOutside: boolean = true;
   @Input() tooltipCloseOnMouseLeave: boolean = true;
   @Input() tooltipHideTimeout: number = 300;
   @Input() tooltipShowTimeout: number = 100;
@@ -56,7 +56,7 @@ export class TooltipDirective implements OnDestroy {
   private timeout: ReturnType<typeof setTimeout>;
   private mouseLeaveContentEvent: any;
   private mouseEnterContentEvent: any;
-  private documentClickEvent: any;
+  private documentTouchEvent: any;
 
   constructor(
     private tooltipService: TooltipService,
@@ -77,7 +77,6 @@ export class TooltipDirective implements OnDestroy {
 
   @HostListener('touchstart', ['$event'])
   onTouchStart(event): void {
-    this.hideTooltip(true);
     if (this.listensForTouch) {
       this.showTooltip();
       // prevent additional mouse events (click) from hiding the tooltip on iOS
@@ -159,9 +158,9 @@ export class TooltipDirective implements OnDestroy {
       });
     }
 
-    // content close on click outside
-    if (this.tooltipCloseOnClickOutside) {
-      this.documentClickEvent = this.renderer.listen('window', 'click', event => {
+    // content close on touch outside
+    if (this.tooltipCloseOnTouchOutside) {
+      this.documentTouchEvent = this.renderer.listen('window', 'touchstart', event => {
         const contains = tooltip.contains(event.target);
         if (!contains) this.hideTooltip();
       });
@@ -170,12 +169,12 @@ export class TooltipDirective implements OnDestroy {
 
   hideTooltip(immediate: boolean = false): void {
     if (!this.component) return;
-
+    
     const destroyFn = () => {
       // remove events
       if (this.mouseLeaveContentEvent) this.mouseLeaveContentEvent();
       if (this.mouseEnterContentEvent) this.mouseEnterContentEvent();
-      if (this.documentClickEvent) this.documentClickEvent();
+      if (this.documentTouchEvent) this.documentTouchEvent();
 
       // emit events
       this.hide.emit(true);
