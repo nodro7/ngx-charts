@@ -1,6 +1,6 @@
 {
   "name": "@nodro7/ngx-charts",
-  "version": "22.0.0",
+  "version": "22.0.1",
   "description": "Declarative Charting Framework for Angular",
   "repository": {
     "type": "git",

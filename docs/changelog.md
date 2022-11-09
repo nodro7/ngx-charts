@@ -1,5 +1,9 @@
 # Changelog
 
+## 22.0.1
+
+- fix: close tooltip on touch outside
+
 ## 22.0.0
 
 - fix: tooltip display on iOS
