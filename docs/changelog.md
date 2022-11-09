@@ -1,5 +1,24 @@
 # Changelog
 
+## 22.0.0
+
+- fix: tooltip display on iOS
+- feat: update to angular 14
+- build: remove @angular/flex-layout
+- build: remove tslint
+- build: update all d3 deps and types
+
+## 21.0.0
+
+- Released to include merged changes from before fork
+  - Setting height for container (#1796)
+  - change ios timeout (#1784) [**Note** this doesn't fix anything from what I can tell]
+  - Replace deep clone (#1771)
+  - pass through minVal of zero (#1518)
+  - Add roundEdges (#1682)
+  - Some dependabot bumps
+  - add eslint (#1738)
+
 ## 20.1.0
 
 - Fix: Cyclic import error caused by interface export in `PieGridComponent`.
